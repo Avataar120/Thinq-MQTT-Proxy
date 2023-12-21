@@ -143,9 +143,18 @@ def processStateData(data) {
     }
     if (parent.checkValue(data, "airState.opMode"))
         sendEvent(name: "opMode", value: data["airState.opMode"], displayed: false)
+
     if (parent.checkValue(data, "airState.quality.sensorMon"))
         sendEvent(name: "qualitySensorMon", value: data["airState.quality.sensorMon"], displayed: false)
-    if (parent.checkValue(data, "airState.reservation.sleepTime"))
+    
+    if (parent.checkValue(data, "airState.tempState.hotWaterTarget"))
+        sendEvent(name: "hotWaterTarget", value: data["airState.tempState.hotWaterTarget"], displayed: false)
+    if (parent.checkValue(data, "airState.tempState.outWaterCurrent"))
+        sendEvent(name: "outWaterCurrent", value: data["airState.tempState.outWaterCurrent"], displayed: false)
+    if (parent.checkValue(data, "airState.tempState.inWaterCurrent"))
+        sendEvent(name: "inWaterCurrent", value: data["airState.tempState.inWaterCurrent"], displayed: false)
+	
+	if (parent.checkValue(data, "airState.reservation.sleepTime"))
         sendEvent(name: "sleepTime", value: data["airState.reservation.sleepTime"], displayed: false)
     if (parent.checkValue(data, "airState.reservation.targetTimeToStart"))
 		sendEvent(name: "targetTimeToStart", value: data["airState.reservation.targetTimeToStart"], displayed: false)
